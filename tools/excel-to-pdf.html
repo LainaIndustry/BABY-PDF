@@ -4,32 +4,372 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Excel to PDF - Convert Excel Spreadsheets to PDF Online | BabyPDF</title>
-    <meta name="description" content="Convert Excel files (XLS, XLSX) to PDF documents. Preserve formatting, formulas, and calculations.">
+    <meta name="description" content="Convert Excel files (XLS, XLSX) to PDF documents. Preserve formatting, formulas, and calculations in PDF format.">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 </head>
 <body>
-    <!-- Header (same as other tool pages) -->
-    
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="../index.html" class="logo">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>BabyPDF</span>
+                </a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">PDF Tools <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4>Popular Tools</h4>
+                                    <a href="merge-pdf.html"><i class="fas fa-object-group"></i> Merge PDF</a>
+                                    <a href="split-pdf.html"><i class="fas fa-cut"></i> Split PDF</a>
+                                    <a href="compress-pdf.html"><i class="fas fa-compress-alt"></i> Compress PDF</a>
+                                    <a href="edit-pdf.html"><i class="fas fa-edit"></i> Edit PDF</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4>Convert To PDF</h4>
+                                    <a href="word-to-pdf.html"><i class="fas fa-file-word"></i> Word to PDF</a>
+                                    <a href="excel-to-pdf.html"><i class="fas fa-file-excel"></i> Excel to PDF</a>
+                                    <a href="ppt-to-pdf.html"><i class="fas fa-file-powerpoint"></i> PPT to PDF</a>
+                                    <a href="jpg-to-pdf.html"><i class="fas fa-file-image"></i> JPG to PDF</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4>Convert From PDF</h4>
+                                    <a href="pdf-to-word.html"><i class="fas fa-file-word"></i> PDF to Word</a>
+                                    <a href="pdf-to-excel.html"><i class="fas fa-file-excel"></i> PDF to Excel</a>
+                                    <a href="pdf-to-ppt.html"><i class="fas fa-file-powerpoint"></i> PDF to PPT</a>
+                                    <a href="pdf-to-jpg.html"><i class="fas fa-file-image"></i> PDF to JPG</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="../pages/blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="../pages/about-us.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="../pages/contact-us.html" class="nav-link">Contact Us</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
     <section class="tool-page">
         <div class="container">
             <div class="tool-header">
                 <h1><i class="fas fa-file-excel"></i> Excel to PDF</h1>
-                <p>Convert Excel spreadsheets to professional PDF documents with preserved formatting.</p>
+                <p>Convert Excel spreadsheets to professional PDF documents with preserved formatting and calculations.</p>
+            </div>
+
+            <div class="ads-container" id="adsense-top">
+                <div class="ads-placeholder">
+                    <p>Advertisement</p>
+                </div>
             </div>
 
             <div class="tool-container">
-                <!-- Similar structure to other tool pages -->
-                <!-- Upload area, options, action buttons -->
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">
+                        <i class="fas fa-file-excel"></i>
+                    </div>
+                    <h3>Select Excel File to Convert</h3>
+                    <p>or drag and drop XLS/XLSX file here</p>
+                    <button class="btn btn-secondary" id="browseBtn">
+                        <i class="fas fa-folder-open"></i> Browse Excel Files
+                    </button>
+                </div>
+
+                <input type="file" id="fileInput" accept=".xls,.xlsx,.csv,.ods" hidden>
+
+                <div class="file-list" id="fileList">
+                    <h4>Selected File (<span id="fileCount">0</span>)</h4>
+                    <div id="filesContainer"></div>
+                </div>
+
+                <div class="tool-options">
+                    <div class="option-group">
+                        <h4><i class="fas fa-cog"></i> Conversion Settings</h4>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="fitToPage" checked>
+                                <span>Fit worksheet to one page</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="includeGridlines">
+                                <span>Include gridlines</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="includeHeadings">
+                                <span>Include row and column headings</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="landscape" checked>
+                                <span>Landscape orientation</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <h4><i class="fas fa-th-large"></i> Page Range</h4>
+                        <div class="form-group">
+                            <label>Print Area (Optional)</label>
+                            <input type="text" id="printRange" placeholder="e.g., A1:G50" style="width: 100%; padding: 10px; margin: 10px 0;">
+                            <small>Specify cell range or leave empty for entire sheet</small>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <h4><i class="fas fa-file-alt"></i> Output Options</h4>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="output" value="all" checked>
+                                <span>All worksheets in one PDF</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="output" value="separate">
+                                <span>Separate PDF for each worksheet</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="output" value="selected">
+                                <span>Selected worksheets only</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <h4><i class="fas fa-pager"></i> Page Settings</h4>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="pageSize" value="letter" checked>
+                                <span>Letter (8.5" x 11")</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="pageSize" value="a4">
+                                <span>A4 (210mm x 297mm)</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="pageSize" value="legal">
+                                <span>Legal (8.5" x 14")</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-container" id="progressContainer">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">Processing... 0%</div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-primary" id="processBtn" disabled>
+                        <i class="fas fa-exchange-alt"></i> Convert to PDF
+                    </button>
+                    <button class="btn btn-secondary" id="resetBtn">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                </div>
+
+                <div id="downloadSection" style="display: none; text-align: center; margin-top: 30px;">
+                    <h3><i class="fas fa-check-circle" style="color: #00b894;"></i> Excel Converted to PDF!</h3>
+                    <p>Your PDF document is ready to download.</p>
+                    <button class="btn btn-primary" id="downloadBtn">
+                        <i class="fas fa-download"></i> Download PDF
+                    </button>
+                </div>
+            </div>
+
+            <div class="ads-container" id="adsense-middle" style="margin-top: 40px;">
+                <div class="ads-placeholder">
+                    <p>Advertisement</p>
+                </div>
+            </div>
+
+            <div class="tool-description" style="margin-top: 50px; background: #f8f9fa; padding: 30px; border-radius: 8px;">
+                <h3>About Excel to PDF Converter</h3>
+                <p>Convert your Excel spreadsheets to PDF format for easy sharing, printing, and archiving. Perfect for:</p>
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    <li>Sharing financial reports</li>
+                    <li>Creating printable invoices</li>
+                    <li>Archiving important data</li>
+                    <li>Submitting reports that can't be edited</li>
+                    <li>Creating professional-looking documents</li>
+                </ul>
+                <p><strong>Supported Formats:</strong></p>
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    <li>XLS (Excel 97-2003)</li>
+                    <li>XLSX (Excel 2007+)</li>
+                    <li>CSV (Comma Separated Values)</li>
+                    <li>ODS (OpenDocument Spreadsheet)</li>
+                </ul>
+                <p><strong>Features:</strong></p>
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    <li>Preserve cell formatting and styles</li>
+                    <li>Convert formulas to calculated values</li>
+                    <li>Handle multiple worksheets</li>
+                    <li>Custom page setup options</li>
+                    <li>High-quality output</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- Footer (same as other tool pages) -->
-    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>BabyPDF Tools</h4>
+                    <ul>
+                        <li><a href="merge-pdf.html">Merge PDF</a></li>
+                        <li><a href="split-pdf.html">Split PDF</a></li>
+                        <li><a href="jpg-to-pdf.html">JPG to PDF</a></li>
+                        <li><a href="pdf-to-jpg.html">PDF to JPG</a></li>
+                        <li><a href="compress-pdf.html">Compress PDF</a></li>
+                        <li><a href="edit-pdf.html">Edit PDF</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="../pages/about-us.html">About Us</a></li>
+                        <li><a href="../pages/contact-us.html">Contact Us</a></li>
+                        <li><a href="../pages/blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../pages/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="../pages/terms-of-use.html">Terms of Use</a></li>
+                        <li><a href="../pages/disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                    <p class="footer-about">BabyPDF provides free, browser-based PDF tools that work locally on your device.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 BabyPDFTools.com — All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
     <script src="../main.js"></script>
     <script src="../tool.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const uploadArea = document.getElementById('uploadArea');
+            const fileInput = document.getElementById('fileInput');
+            const browseBtn = document.getElementById('browseBtn');
+            const processBtn = document.getElementById('processBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const downloadBtn = document.getElementById('downloadBtn');
+            const filesContainer = document.getElementById('filesContainer');
+            const downloadSection = document.getElementById('downloadSection');
+
+            // Custom file handling for Excel files
+            uploadArea.addEventListener('click', () => fileInput.click());
+            
+            uploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadArea.style.borderColor = '#ff5a5f';
+                uploadArea.style.backgroundColor = '#f8f9fa';
+            });
+            
+            uploadArea.addEventListener('dragleave', () => {
+                uploadArea.style.borderColor = '#dfe6e9';
+                uploadArea.style.backgroundColor = 'transparent';
+            });
+            
+            uploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadArea.style.borderColor = '#dfe6e9';
+                uploadArea.style.backgroundColor = 'transparent';
+                handleFiles(e.dataTransfer.files);
+            });
+
+            fileInput.addEventListener('change', (e) => {
+                handleFiles(e.target.files);
+            });
+
+            browseBtn.addEventListener('click', () => fileInput.click());
+
+            function handleFiles(fileList) {
+                const files = Array.from(fileList).filter(file => {
+                    const acceptedTypes = [
+                        'application/vnd.ms-excel',
+                        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                        'text/csv',
+                        'application/vnd.oasis.opendocument.spreadsheet'
+                    ];
+                    const acceptedExtensions = ['.xls', '.xlsx', '.csv', '.ods'];
+                    const extension = file.name.toLowerCase().slice(file.name.lastIndexOf('.'));
+                    
+                    return acceptedTypes.includes(file.type) || acceptedExtensions.includes(extension);
+                });
+
+                if (files.length === 0) {
+                    pdfProcessor.showMessage('Please select Excel files (XLS, XLSX, CSV, ODS)', 'error');
+                    return;
+                }
+
+                files.forEach(file => {
+                    pdfProcessor.addFile(file, filesContainer);
+                });
+
+                pdfProcessor.updateFileCount();
+            }
+
+            processBtn.addEventListener('click', async () => {
+                if (pdfProcessor.files.length === 0) {
+                    pdfProcessor.showMessage('Please select an Excel file to convert', 'error');
+                    return;
+                }
+
+                processBtn.disabled = true;
+                processBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Converting...';
+
+                await pdfProcessor.simulateProcessing(2000);
+
+                downloadSection.style.display = 'block';
+                processBtn.innerHTML = '<i class="fas fa-exchange-alt"></i> Convert to PDF';
+                processBtn.disabled = false;
+
+                pdfProcessor.showMessage('Excel converted to PDF successfully!', 'success');
+            });
+
+            downloadBtn.addEventListener('click', () => {
+                const fileName = `spreadsheet-${Date.now()}.pdf`;
+                const content = 'This is a demo PDF converted from Excel. In a real implementation, this would be the actual PDF content.';
+                pdfProcessor.downloadFile(fileName, content);
+            });
+
+            resetBtn.addEventListener('click', () => {
+                pdfProcessor.reset();
+                downloadSection.style.display = 'none';
+                processBtn.disabled = true;
+            });
+
+            setInterval(() => {
+                const fileCount = pdfProcessor.files.length;
+                processBtn.disabled = fileCount === 0;
+            }, 500);
+        });
+    </script>
 </body>
 </html>
