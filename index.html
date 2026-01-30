@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BabyPDF - Simple, Fast & Free PDF Tools Online</title>
+    <meta name="description" content="100% free PDF tools to merge, split, compress, convert and edit PDF files. All tools work locally in your browser. No uploads, no registration required.">
+    <meta name="keywords" content="PDF tools, merge PDF, split PDF, convert PDF, edit PDF, free PDF tools">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>BabyPDF</span>
+                </a>
+
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">PDF Tools <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4>Popular Tools</h4>
+                                    <a href="tools/merge-pdf.html"><i class="fas fa-object-group"></i> Merge PDF</a>
+                                    <a href="tools/split-pdf.html"><i class="fas fa-cut"></i> Split PDF</a>
+                                    <a href="tools/compress-pdf.html"><i class="fas fa-compress-alt"></i> Compress PDF</a>
+                                    <a href="tools/edit-pdf.html"><i class="fas fa-edit"></i> Edit PDF</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4>Convert To PDF</h4>
+                                    <a href="tools/word-to-pdf.html"><i class="fas fa-file-word"></i> Word to PDF</a>
+                                    <a href="tools/excel-to-pdf.html"><i class="fas fa-file-excel"></i> Excel to PDF</a>
+                                    <a href="tools/ppt-to-pdf.html"><i class="fas fa-file-powerpoint"></i> PPT to PDF</a>
+                                    <a href="tools/jpg-to-pdf.html"><i class="fas fa-file-image"></i> JPG to PDF</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4>Convert From PDF</h4>
+                                    <a href="tools/pdf-to-word.html"><i class="fas fa-file-word"></i> PDF to Word</a>
+                                    <a href="tools/pdf-to-excel.html"><i class="fas fa-file-excel"></i> PDF to Excel</a>
+                                    <a href="tools/pdf-to-ppt.html"><i class="fas fa-file-powerpoint"></i> PDF to PPT</a>
+                                    <a href="tools/pdf-to-jpg.html"><i class="fas fa-file-image"></i> PDF to JPG</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="pages/blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="pages/about-us.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="pages/contact-us.html" class="nav-link">Contact Us</a></li>
+                </ul>
+
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1 class="hero-title">Simple, Fast & Free PDF Tools Online</h1>
+            <p class="hero-subtitle">Merge, split, convert & edit PDFs securely – right in your browser</p>
+            <div class="hero-main">
+                <h2>Simple, Fast & Free PDF Tools</h2>
+                <p class="hero-desc">All PDF tools work locally in your browser</p>
+                <div class="cta-container">
+                    <button class="cta-button" id="selectFileBtn">
+                        <i class="fas fa-file-upload"></i> Select PDF File
+                    </button>
+                    <input type="file" id="fileInput" accept=".pdf" hidden>
+                    <p class="trust-note"><i class="fas fa-shield-alt"></i> 100% secure – files stay on your device</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Tools Section -->
+    <section class="tools-section">
+        <div class="container">
+            <h2 class="section-title">POPULAR PDF TOOLS</h2>
+            <p class="section-subtitle">All tools work 100% in your browser. No uploads, no registration.</p>
+            
+            <div class="tools-grid">
+                <!-- Tool Cards -->
+                <a href="tools/merge-pdf.html" class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-object-group"></i></div>
+                    <h3>Merge PDF</h3>
+                    <p>Combine multiple PDFs into one document</p>
+                </a>
+
+                <a href="tools/split-pdf.html" class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-cut"></i></div>
+                    <h3>Split PDF</h3>
+                    <p>Split PDF into multiple documents</p>
+                </a>
+
+                <a href="tools/compress-pdf.html" class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-compress-alt"></i></div>
+                    <h3>Compress PDF</h3>
+                    <p>Reduce PDF file size while preserving quality</p>
+                </a>
+
+                <a href="tools/pdf-to-word.html" class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-file-word"></i></div>
+                    <h3>PDF to Word</h3>
+                    <p>Convert PDF to editable Word documents</p>
+                </a>
+
+                <a href="tools/word-to-pdf.html" class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-file-word"></i></div>
+                    <h3>Word to PDF</h3>
+                    <p>Convert Word documents to PDF format</p>
+                </a>
+
+                <a href="tools/pdf-to-jpg.html" class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-file-image"></i></div>
+                    <h3>PDF to JPG</h3>
+                    <p>Convert PDF pages to JPG images</p>
+                </a>
+
+                <a href="tools/jpg-to-pdf.html" class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-file-image"></i></div>
+                    <h3>JPG to PDF</h3>
+                    <p>Convert JPG images to PDF document</p>
+                </a>
+
+                <a href="tools/edit-pdf.html" class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-edit"></i></div>
+                    <h3>Edit PDF</h3>
+                    <p>Add text, images, rotate pages in PDF</p>
+                </a>
+
+                <a href="tools/pdf-to-excel.html" class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-file-excel"></i></div>
+                    <h3>PDF to Excel</h3>
+                    <p>Extract tables from PDF to Excel</p>
+                </a>
+
+                <a href="tools/excel-to-pdf.html" class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-file-excel"></i></div>
+                    <h3>Excel to PDF</h3>
+                    <p>Convert Excel spreadsheets to PDF</p>
+                </a>
+
+                <a href="tools/pdf-to-ppt.html" class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-file-powerpoint"></i></div>
+                    <h3>PDF to PPT</h3>
+                    <p>Convert PDF to PowerPoint presentation</p>
+                </a>
+
+                <a href="tools/ppt-to-pdf.html" class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-file-powerpoint"></i></div>
+                    <h3>PPT to PDF</h3>
+                    <p>Convert PowerPoint to PDF document</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">WHY USE BABY PDF?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>100% Browser-Based Tools</h3>
+                    <p>All tools work directly in your browser. No software installation required.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                    <h3>No File Uploads</h3>
+                    <p>Your files never leave your device. Process everything locally for maximum security.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Fast Processing</h3>
+                    <p>Process PDF files quickly with our optimized browser-based tools.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Works on Mobile & Desktop</h3>
+                    <p>Access all tools from any device with a modern web browser.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-dollar-sign"></i></div>
+                    <h3>Free to Use</h3>
+                    <p>All tools are completely free with no hidden charges or limitations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AdSense Placeholder -->
+    <section class="ads-section">
+        <div class="container">
+            <div class="ads-container" id="adsense-top">
+                <!-- AdSense will be loaded here -->
+                <div class="ads-placeholder">
+                    <p>Advertisement</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>BabyPDF Tools</h4>
+                    <ul>
+                        <li><a href="tools/merge-pdf.html">Merge PDF</a></li>
+                        <li><a href="tools/split-pdf.html">Split PDF</a></li>
+                        <li><a href="tools/jpg-to-pdf.html">JPG to PDF</a></li>
+                        <li><a href="tools/pdf-to-jpg.html">PDF to JPG</a></li>
+                        <li><a href="tools/compress-pdf.html">Compress PDF</a></li>
+                        <li><a href="tools/edit-pdf.html">Edit PDF</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="pages/about-us.html">About Us</a></li>
+                        <li><a href="pages/contact-us.html">Contact Us</a></li>
+                        <li><a href="pages/blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="pages/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="pages/terms-of-use.html">Terms of Use</a></li>
+                        <li><a href="pages/disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                    <p class="footer-about">BabyPDF provides free, browser-based PDF tools that work locally on your device.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 BabyPDFTools.com — All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+    <script src="adsense.js"></script>
+</body>
+</html>
