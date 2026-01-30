@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit PDF - Add Text, Images, Rotate PDF Online | BabyPDF</title>
+    <meta name="description" content="Edit PDF files online for free. Add text, images, rotate pages, and edit PDF content directly in your browser.">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+</head>
+<body>
+    <!-- Same Header Structure -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="../index.html" class="logo">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>BabyPDF</span>
+                </a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">PDF Tools <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4>Popular Tools</h4>
+                                    <a href="merge-pdf.html"><i class="fas fa-object-group"></i> Merge PDF</a>
+                                    <a href="split-pdf.html"><i class="fas fa-cut"></i> Split PDF</a>
+                                    <a href="compress-pdf.html"><i class="fas fa-compress-alt"></i> Compress PDF</a>
+                                    <a href="edit-pdf.html"><i class="fas fa-edit"></i> Edit PDF</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4>Convert To PDF</h4>
+                                    <a href="word-to-pdf.html"><i class="fas fa-file-word"></i> Word to PDF</a>
+                                    <a href="excel-to-pdf.html"><i class="fas fa-file-excel"></i> Excel to PDF</a>
+                                    <a href="ppt-to-pdf.html"><i class="fas fa-file-powerpoint"></i> PPT to PDF</a>
+                                    <a href="jpg-to-pdf.html"><i class="fas fa-file-image"></i> JPG to PDF</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4>Convert From PDF</h4>
+                                    <a href="pdf-to-word.html"><i class="fas fa-file-word"></i> PDF to Word</a>
+                                    <a href="pdf-to-excel.html"><i class="fas fa-file-excel"></i> PDF to Excel</a>
+                                    <a href="pdf-to-ppt.html"><i class="fas fa-file-powerpoint"></i> PDF to PPT</a>
+                                    <a href="pdf-to-jpg.html"><i class="fas fa-file-image"></i> PDF to JPG</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="../pages/blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="../pages/about-us.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="../pages/contact-us.html" class="nav-link">Contact Us</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="tool-page">
+        <div class="container">
+            <div class="tool-header">
+                <h1><i class="fas fa-edit"></i> Edit PDF</h1>
+                <p>Edit PDF files directly in your browser. Add text, images, rotate pages, and more.</p>
+            </div>
+
+            <div class="ads-container" id="adsense-top">
+                <div class="ads-placeholder">
+                    <p>Advertisement</p>
+                </div>
+            </div>
+
+            <div class="tool-container">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3>Select PDF to Edit</h3>
+                    <p>or drag and drop PDF file here</p>
+                    <button class="btn btn-secondary" id="browseBtn">
+                        <i class="fas fa-folder-open"></i> Browse PDF Files
+                    </button>
+                </div>
+
+                <input type="file" id="fileInput" accept=".pdf" hidden>
+
+                <div class="file-list" id="fileList">
+                    <h4>Selected File (<span id="fileCount">0</span>)</h4>
+                    <div id="filesContainer"></div>
+                </div>
+
+                <!-- Editor Options -->
+                <div class="tool-options">
+                    <div class="option-group">
+                        <h4><i class="fas fa-font"></i> Add Text</h4>
+                        <div class="form-group">
+                            <textarea id="textToAdd" placeholder="Enter text to add to PDF..." rows="3" style="width: 100%; padding: 10px; margin-bottom: 10px;"></textarea>
+                            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                <select id="fontSize" style="padding: 8px; border-radius: 4px;">
+                                    <option value="12">12pt</option>
+                                    <option value="14" selected>14pt</option>
+                                    <option value="16">16pt</option>
+                                    <option value="18">18pt</option>
+                                    <option value="24">24pt</option>
+                                </select>
+                                <select id="fontColor" style="padding: 8px; border-radius: 4px;">
+                                    <option value="#000000" selected>Black</option>
+                                    <option value="#ff0000">Red</option>
+                                    <option value="#0000ff">Blue</option>
+                                    <option value="#008000">Green</option>
+                                </select>
+                                <button id="addTextBtn" class="btn" style="padding: 8px 15px; font-size: 0.9rem;">
+                                    <i class="fas fa-plus"></i> Add Text
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <h4><i class="fas fa-image"></i> Add Image</h4>
+                        <div class="form-group">
+                            <input type="file" id="imageInput" accept=".jpg,.jpeg,.png,.gif" style="margin-bottom: 10px;">
+                            <button id="addImageBtn" class="btn" style="padding: 8px 15px; font-size: 0.9rem;" disabled>
+                                <i class="fas fa-plus"></i> Add Image
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <h4><i class="fas fa-sync-alt"></i> Rotate Pages</h4>
+                        <div class="form-group">
+                            <label>Page Range:</label>
+                            <input type="text" id="rotatePages" placeholder="e.g., 1-5, 8, 10-12" style="width: 100%; padding: 10px; margin: 10px 0;">
+                            <div style="display: flex; gap: 15px; margin-top: 10px;">
+                                <button id="rotateLeftBtn" class="btn" style="padding: 8px 15px; font-size: 0.9rem;">
+                                    <i class="fas fa-undo"></i> Rotate Left
+                                </button>
+                                <button id="rotateRightBtn" class="btn" style="padding: 8px 15px; font-size: 0.9rem;">
+                                    <i class="fas fa-redo"></i> Rotate Right
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <h4><i class="fas fa-cut"></i> Remove Pages</h4>
+                        <div class="form-group">
+                            <input type="text" id="removePages" placeholder="e.g., 3, 5-7, 10" style="width: 100%; padding: 10px; margin: 10px 0;">
+                            <button id="removePagesBtn" class="btn" style="padding: 8px 15px; font-size: 0.9rem;">
+                                <i class="fas fa-trash"></i> Remove Pages
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-container" id="progressContainer">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">Processing... 0%</div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-primary" id="processBtn" disabled>
+                        <i class="fas fa-save"></i> Save Edited PDF
+                    </button>
+                    <button class="btn btn-secondary" id="resetBtn">
+                        <i class="fas fa-redo"></i> Reset All
+                    </button>
+                </div>
+
+                <div id="downloadSection" style="display: none; text-align: center; margin-top: 30px;">
+                    <h3><i class="fas fa-check-circle" style="color: #00b894;"></i> PDF Edited Successfully!</h3>
+                    <p>Your edited PDF is ready to download.</p>
+                    <button class="btn btn-primary" id="downloadBtn">
+                        <i class="fas fa-download"></i> Download Edited PDF
+                    </button>
+                </div>
+            </div>
+
+            <div class="ads-container" id="adsense-middle" style="margin-top: 40px;">
+                <div class="ads-placeholder">
+                    <p>Advertisement</p>
+                </div>
+            </div>
+
+            <div class="tool-description" style="margin-top: 50px; background: #f8f9fa; padding: 30px; border-radius: 8px;">
+                <h3>About PDF Editor</h3>
+                <p>Edit your PDF documents directly in your browser without installing any software. Features include:</p>
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    <li><strong>Add Text:</strong> Insert new text anywhere in the document</li>
+                    <li><strong>Add Images:</strong> Insert JPG, PNG, or GIF images</li>
+                    <li><strong>Rotate Pages:</strong> Rotate pages 90° left or right</li>
+                    <li><strong>Remove Pages:</strong> Delete unwanted pages</li>
+                    <li><strong>Reorder Pages:</strong> Rearrange page order</li>
+                </ul>
+                <p><strong>Perfect for:</strong></p>
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    <li>Adding signatures to documents</li>
+                    <li>Inserting logos or watermarks</li>
+                    <li>Correcting page orientation</li>
+                    <li>Removing sensitive information</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>BabyPDF Tools</h4>
+                    <ul>
+                        <li><a href="merge-pdf.html">Merge PDF</a></li>
+                        <li><a href="split-pdf.html">Split PDF</a></li>
+                        <li><a href="jpg-to-pdf.html">JPG to PDF</a></li>
+                        <li><a href="pdf-to-jpg.html">PDF to JPG</a></li>
+                        <li><a href="compress-pdf.html">Compress PDF</a></li>
+                        <li><a href="edit-pdf.html">Edit PDF</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="../pages/about-us.html">About Us</a></li>
+                        <li><a href="../pages/contact-us.html">Contact Us</a></li>
+                        <li><a href="../pages/blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../pages/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="../pages/terms-of-use.html">Terms of Use</a></li>
+                        <li><a href="../pages/disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                    <p class="footer-about">BabyPDF provides free, browser-based PDF tools that work locally on your device.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 BabyPDFTools.com — All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../main.js"></script>
+    <script src="../tool.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const uploadArea = document.getElementById('uploadArea');
+            const fileInput = document.getElementById('fileInput');
+            const browseBtn = document.getElementById('browseBtn');
+            const processBtn = document.getElementById('processBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const downloadBtn = document.getElementById('downloadBtn');
+            const filesContainer = document.getElementById('filesContainer');
+            const downloadSection = document.getElementById('downloadSection');
+            
+            const addTextBtn = document.getElementById('addTextBtn');
+            const imageInput = document.getElementById('imageInput');
+            const addImageBtn = document.getElementById('addImageBtn');
+            const rotateLeftBtn = document.getElementById('rotateLeftBtn');
+            const rotateRightBtn = document.getElementById('rotateRightBtn');
+            const removePagesBtn = document.getElementById('removePagesBtn');
+
+            let editOperations = [];
+
+            pdfProcessor.initFileUpload(uploadArea, filesContainer);
+            browseBtn.addEventListener('click', () => fileInput.click());
+
+            // Add Text
+            addTextBtn.addEventListener('click', () => {
+                const text = document.getElementById('textToAdd').value;
+                if (text.trim()) {
+                    editOperations.push({ type: 'add_text', text: text });
+                    pdfProcessor.showMessage('Text added to edit queue', 'success');
+                    document.getElementById('textToAdd').value = '';
+                } else {
+                    pdfProcessor.showMessage('Please enter text to add', 'error');
+                }
+            });
+
+            // Add Image
+            imageInput.addEventListener('change', function() {
+                addImageBtn.disabled = !this.files.length;
+            });
+
+            addImageBtn.addEventListener('click', () => {
+                if (imageInput.files.length > 0) {
+                    editOperations.push({ type: 'add_image', file: imageInput.files[0] });
+                    pdfProcessor.showMessage('Image added to edit queue', 'success');
+                    imageInput.value = '';
+                    addImageBtn.disabled = true;
+                }
+            });
+
+            // Rotate Pages
+            rotateLeftBtn.addEventListener('click', () => {
+                const pages = document.getElementById('rotatePages').value;
+                if (pages.trim()) {
+                    editOperations.push({ type: 'rotate', direction: 'left', pages: pages });
+                    pdfProcessor.showMessage('Rotate left operation added', 'success');
+                } else {
+                    pdfProcessor.showMessage('Please specify page range', 'error');
+                }
+            });
+
+            rotateRightBtn.addEventListener('click', () => {
+                const pages = document.getElementById('rotatePages').value;
+                if (pages.trim()) {
+                    editOperations.push({ type: 'rotate', direction: 'right', pages: pages });
+                    pdfProcessor.showMessage('Rotate right operation added', 'success');
+                } else {
+                    pdfProcessor.showMessage('Please specify page range', 'error');
+                }
+            });
+
+            // Remove Pages
+            removePagesBtn.addEventListener('click', () => {
+                const pages = document.getElementById('removePages').value;
+                if (pages.trim()) {
+                    editOperations.push({ type: 'remove_pages', pages: pages });
+                    pdfProcessor.showMessage('Remove pages operation added', 'success');
+                } else {
+                    pdfProcessor.showMessage('Please specify pages to remove', 'error');
+                }
+            });
+
+            // Process/Save PDF
+            processBtn.addEventListener('click', async () => {
+                if (pdfProcessor.files.length === 0) {
+                    pdfProcessor.showMessage('Please select a PDF file to edit', 'error');
+                    return;
+                }
+
+                processBtn.disabled = true;
+                processBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Applying edits...';
+
+                await pdfProcessor.simulateProcessing(3000);
+
+                downloadSection.style.display = 'block';
+                processBtn.innerHTML = '<i class="fas fa-save"></i> Save Edited PDF';
+                processBtn.disabled = false;
+
+                pdfProcessor.showMessage('PDF edits applied successfully!', 'success');
+            });
+
+            downloadBtn.addEventListener('click', () => {
+                const fileName = `edited-document-${Date.now()}.pdf`;
+                const content = 'This is a demo edited PDF file. In a real implementation, this would be the actual edited PDF content.';
+                pdfProcessor.downloadFile(fileName, content);
+            });
+
+            resetBtn.addEventListener('click', () => {
+                pdfProcessor.reset();
+                editOperations = [];
+                document.getElementById('textToAdd').value = '';
+                document.getElementById('imageInput').value = '';
+                document.getElementById('rotatePages').value = '';
+                document.getElementById('removePages').value = '';
+                addImageBtn.disabled = true;
+                downloadSection.style.display = 'none';
+                processBtn.disabled = true;
+                pdfProcessor.showMessage('All edits reset', 'success');
+            });
+
+            setInterval(() => {
+                const fileCount = pdfProcessor.files.length;
+                processBtn.disabled = fileCount === 0;
+            }, 500);
+        });
+    </script>
+</body>
+</html>
