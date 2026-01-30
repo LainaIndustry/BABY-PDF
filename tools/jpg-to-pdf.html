@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JPG to PDF - Convert Images to PDF Online Free | BabyPDF</title>
+    <meta name="description" content="Convert JPG, PNG, GIF images to PDF documents. Create PDF from multiple images online for free.">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+</head>
+<body>
+    <!-- Same Header Structure -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="../index.html" class="logo">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>BabyPDF</span>
+                </a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="../index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">PDF Tools <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-grid">
+                                <div class="dropdown-column">
+                                    <h4>Popular Tools</h4>
+                                    <a href="merge-pdf.html"><i class="fas fa-object-group"></i> Merge PDF</a>
+                                    <a href="split-pdf.html"><i class="fas fa-cut"></i> Split PDF</a>
+                                    <a href="compress-pdf.html"><i class="fas fa-compress-alt"></i> Compress PDF</a>
+                                    <a href="edit-pdf.html"><i class="fas fa-edit"></i> Edit PDF</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4>Convert To PDF</h4>
+                                    <a href="word-to-pdf.html"><i class="fas fa-file-word"></i> Word to PDF</a>
+                                    <a href="excel-to-pdf.html"><i class="fas fa-file-excel"></i> Excel to PDF</a>
+                                    <a href="ppt-to-pdf.html"><i class="fas fa-file-powerpoint"></i> PPT to PDF</a>
+                                    <a href="jpg-to-pdf.html"><i class="fas fa-file-image"></i> JPG to PDF</a>
+                                </div>
+                                <div class="dropdown-column">
+                                    <h4>Convert From PDF</h4>
+                                    <a href="pdf-to-word.html"><i class="fas fa-file-word"></i> PDF to Word</a>
+                                    <a href="pdf-to-excel.html"><i class="fas fa-file-excel"></i> PDF to Excel</a>
+                                    <a href="pdf-to-ppt.html"><i class="fas fa-file-powerpoint"></i> PDF to PPT</a>
+                                    <a href="pdf-to-jpg.html"><i class="fas fa-file-image"></i> PDF to JPG</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a href="../pages/blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="../pages/about-us.html" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="../pages/contact-us.html" class="nav-link">Contact Us</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="tool-page">
+        <div class="container">
+            <div class="tool-header">
+                <h1><i class="fas fa-file-image"></i> JPG to PDF</h1>
+                <p>Convert JPG, PNG, GIF, and other images to PDF documents. Create multi-page PDFs from images.</p>
+            </div>
+
+            <div class="ads-container" id="adsense-top">
+                <div class="ads-placeholder">
+                    <p>Advertisement</p>
+                </div>
+            </div>
+
+            <div class="tool-container">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">
+                        <i class="fas fa-images"></i>
+                    </div>
+                    <h3>Select Images to Convert</h3>
+                    <p>or drag and drop image files here</p>
+                    <button class="btn btn-secondary" id="browseBtn">
+                        <i class="fas fa-folder-open"></i> Browse Images
+                    </button>
+                </div>
+
+                <input type="file" id="fileInput" accept=".jpg,.jpeg,.png,.gif,.bmp,.webp" multiple hidden>
+
+                <div class="file-list" id="fileList">
+                    <h4>Selected Images (<span id="fileCount">0</span>)</h4>
+                    <div id="filesContainer"></div>
+                    <div id="imagePreview" style="display: none; margin-top: 20px;">
+                        <h5>Image Preview</h5>
+                        <div id="previewContainer" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;"></div>
+                    </div>
+                </div>
+
+                <div class="tool-options">
+                    <div class="option-group">
+                        <h4><i class="fas fa-pager"></i> PDF Layout</h4>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="layout" value="portrait" checked>
+                                <span>Portrait (Vertical)</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="layout" value="landscape">
+                                <span>Landscape (Horizontal)</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="layout" value="auto">
+                                <span>Auto (Match image orientation)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <h4><i class="fas fa-sliders-h"></i> Page Settings</h4>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="fitToPage" checked>
+                                <span>Fit images to page</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="addMargins">
+                                <span>Add margins around images</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="centerImages" checked>
+                                <span>Center images on page</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <h4><i class="fas fa-sort"></i> Image Order</h4>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="order" value="filename" checked>
+                                <span>Sort by filename</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="order" value="upload">
+                                <span>Sort by upload order</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="order" value="manual">
+                                <span>Drag to reorder</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-container" id="progressContainer">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">Processing... 0%</div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-primary" id="processBtn" disabled>
+                        <i class="fas fa-exchange-alt"></i> Convert to PDF
+                    </button>
+                    <button class="btn btn-secondary" id="resetBtn">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                </div>
+
+                <div id="downloadSection" style="display: none; text-align: center; margin-top: 30px;">
+                    <h3><i class="fas fa-check-circle" style="color: #00b894;"></i> Images Converted to PDF!</h3>
+                    <p>Your PDF document is ready to download.</p>
+                    <button class="btn btn-primary" id="downloadBtn">
+                        <i class="fas fa-download"></i> Download PDF
+                    </button>
+                </div>
+            </div>
+
+            <div class="ads-container" id="adsense-middle" style="margin-top: 40px;">
+                <div class="ads-placeholder">
+                    <p>Advertisement</p>
+                </div>
+            </div>
+
+            <div class="tool-description" style="margin-top: 50px; background: #f8f9fa; padding: 30px; border-radius: 8px;">
+                <h3>About JPG to PDF Converter</h3>
+                <p>Convert your images into professional PDF documents. Perfect for:</p>
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    <li>Creating photo albums and portfolios</li>
+                    <li>Converting scanned documents to PDF</li>
+                    <li>Creating presentations from images</li>
+                    <li>Archiving multiple images in one document</li>
+                </ul>
+                <p><strong>Supported Image Formats:</strong></p>
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    <li>JPG / JPEG (Joint Photographic Experts Group)</li>
+                    <li>PNG (Portable Network Graphics)</li>
+                    <li>GIF (Graphics Interchange Format)</li>
+                    <li>BMP (Bitmap Image File)</li>
+                    <li>WebP (Modern web image format)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>BabyPDF Tools</h4>
+                    <ul>
+                        <li><a href="merge-pdf.html">Merge PDF</a></li>
+                        <li><a href="split-pdf.html">Split PDF</a></li>
+                        <li><a href="jpg-to-pdf.html">JPG to PDF</a></li>
+                        <li><a href="pdf-to-jpg.html">PDF to JPG</a></li>
+                        <li><a href="compress-pdf.html">Compress PDF</a></li>
+                        <li><a href="edit-pdf.html">Edit PDF</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="../pages/about-us.html">About Us</a></li>
+                        <li><a href="../pages/contact-us.html">Contact Us</a></li>
+                        <li><a href="../pages/blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../pages/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="../pages/terms-of-use.html">Terms of Use</a></li>
+                        <li><a href="../pages/disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                    <p class="footer-about">BabyPDF provides free, browser-based PDF tools that work locally on your device.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 BabyPDFTools.com — All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../main.js"></script>
+    <script src="../tool.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const uploadArea = document.getElementById('uploadArea');
+            const fileInput = document.getElementById('fileInput');
+            const browseBtn = document.getElementById('browseBtn');
+            const processBtn = document.getElementById('processBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const downloadBtn = document.getElementById('downloadBtn');
+            const filesContainer = document.getElementById('filesContainer');
+            const previewContainer = document.getElementById('previewContainer');
+            const imagePreview = document.getElementById('imagePreview');
+            const downloadSection = document.getElementById('downloadSection');
+
+            let imageFiles = [];
+
+            uploadArea.addEventListener('click', () => fileInput.click());
+            
+            uploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadArea.style.borderColor = '#ff5a5f';
+                uploadArea.style.backgroundColor = '#f8f9fa';
+            });
+            
+            uploadArea.addEventListener('dragleave', () => {
+                uploadArea.style.borderColor = '#dfe6e9';
+                uploadArea.style.backgroundColor = 'transparent';
+            });
+            
+            uploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadArea.style.borderColor = '#dfe6e9';
+                uploadArea.style.backgroundColor = 'transparent';
+                handleFiles(e.dataTransfer.files);
+            });
+
+            fileInput.addEventListener('change', (e) => {
+                handleFiles(e.target.files);
+            });
+
+            browseBtn.addEventListener('click', () => fileInput.click());
+
+            function handleFiles(fileList) {
+                const files = Array.from(fileList).filter(file => {
+                    const acceptedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/bmp', 'image/webp'];
+                    const acceptedExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp'];
+                    const extension = file.name.toLowerCase().slice(file.name.lastIndexOf('.'));
+                    
+                    return acceptedTypes.includes(file.type) || acceptedExtensions.includes(extension);
+                });
+
+                if (files.length === 0) {
+                    pdfProcessor.showMessage('Please select image files (JPG, PNG, GIF, BMP, WebP)', 'error');
+                    return;
+                }
+
+                imageFiles = [...imageFiles, ...files];
+                updateFileList();
+                updateImagePreview();
+            }
+
+            function updateFileList() {
+                filesContainer.innerHTML = '';
+                imageFiles.forEach((file, index) => {
+                    const fileItem = document.createElement('div');
+                    fileItem.className = 'file-item';
+                    fileItem.innerHTML = `
+                        <div class="file-info">
+                            <i class="fas fa-image file-icon" style="color: #ff5a5f;"></i>
+                            <div>
+                                <div class="file-name">${file.name}</div>
+                                <div class="file-size">${formatFileSize(file.size)}</div>
+                            </div>
+                        </div>
+                        <button class="remove-file" onclick="removeImage(${index})">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    `;
+                    filesContainer.appendChild(fileItem);
+                });
+
+                document.getElementById('fileCount').textContent = imageFiles.length;
+                processBtn.disabled = imageFiles.length === 0;
+            }
+
+            function updateImagePreview() {
+                if (imageFiles.length === 0) {
+                    imagePreview.style.display = 'none';
+                    return;
+                }
+
+                imagePreview.style.display = 'block';
+                previewContainer.innerHTML = '';
+
+                // Show preview of first few images
+                const previewFiles = imageFiles.slice(0, 5);
+                previewFiles.forEach(file => {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.style.width = '100px';
+                        img.style.height = '100px';
+                        img.style.objectFit = 'cover';
+                        img.style.borderRadius = '5px';
+                        img.style.border = '2px solid #dfe6e9';
+                        previewContainer.appendChild(img);
+                    };
+                    reader.readAsDataURL(file);
+                });
+
+                if (imageFiles.length > 5) {
+                    const moreText = document.createElement('div');
+                    moreText.textContent = `+ ${imageFiles.length - 5} more images`;
+                    moreText.style.color = '#636e72';
+                    moreText.style.fontSize = '0.9rem';
+                    moreText.style.marginTop = '5px';
+                    previewContainer.appendChild(moreText);
+                }
+            }
+
+            function formatFileSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+            }
+
+            window.removeImage = function(index) {
+                imageFiles.splice(index, 1);
+                updateFileList();
+                updateImagePreview();
+            };
+
+            processBtn.addEventListener('click', async () => {
+                if (imageFiles.length === 0) {
+                    pdfProcessor.showMessage('Please select images to convert', 'error');
+                    return;
+                }
+
+                processBtn.disabled = true;
+                processBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating PDF...';
+
+                await pdfProcessor.simulateProcessing(2000);
+
+                downloadSection.style.display = 'block';
+                processBtn.innerHTML = '<i class="fas fa-exchange-alt"></i> Convert to PDF';
+                processBtn.disabled = false;
+
+                pdfProcessor.showMessage('Images converted to PDF successfully!', 'success');
+            });
+
+            downloadBtn.addEventListener('click', () => {
+                const fileName = `images-converted-${Date.now()}.pdf`;
+                const content = 'This is a demo PDF file created from images. In a real implementation, this would be the actual PDF content.';
+                
+                const blob = new Blob([content], { type: 'application/pdf' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = fileName;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
+
+            resetBtn.addEventListener('click', () => {
+                imageFiles = [];
+                updateFileList();
+                updateImagePreview();
+                downloadSection.style.display = 'none';
+                processBtn.disabled = true;
+                pdfProcessor.showMessage('Reset successful', 'success');
+            });
+        });
+    </script>
+</body>
+</html>
